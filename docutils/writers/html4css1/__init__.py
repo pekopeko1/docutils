@@ -480,7 +480,7 @@ class HTMLTranslator(nodes.NodeVisitor):
         encoded = self.encode(text)
         if self.in_mailto and self.settings.cloak_email_addresses:
             encoded = self.cloak_email(encoded)
-        self.body.append(encoded)
+        self.body.append(encoded.replace("\n", "<br />"))
 
     def depart_Text(self, node):
         pass
